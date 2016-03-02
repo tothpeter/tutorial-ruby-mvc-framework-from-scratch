@@ -1,10 +1,6 @@
 require "simplemvc/version"
-
-class String
-  def titleize
-    gsub('-', '_').split('_').map(&:capitalize).join
-  end
-end
+require "simplemvc/controller"
+require "simplemvc/utils"
 
 module Simplemvc
   class Application
@@ -22,7 +18,7 @@ module Simplemvc
     def get_controller_and_action env
       _, controlle_name, action = env["PATH_INFO"].split "/"
 
-      controller_name = controlle_name.titleize + "Controller"
+      controller_name = controlle_name.camelize + "Controller"
 
       controller_class = Object.const_get controller_name
 

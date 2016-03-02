@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Simple MVC}
   spec.description   = %q{Simple MVC}
-  spec.homepage      = "kalina.tech"
+  spec.homepage      = "http://kalina.tech"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

@@ -1,0 +1,19 @@
+PATH
+  remote: ../simplemvc
+  specs:
+    simplemvc (0.1.0)
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rack (1.6.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  simplemvc!
+
+BUNDLED WITH
+   1.10.6

@@ -1,6 +1,7 @@
 require "simplemvc/version"
 require "simplemvc/controller"
 require "simplemvc/utils"
+require "simplemvc/dependencies"
 
 module Simplemvc
   class Application

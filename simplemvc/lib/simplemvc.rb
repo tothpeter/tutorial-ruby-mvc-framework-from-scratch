@@ -7,7 +7,7 @@ module Simplemvc
   class Application
     def call env
       if env["PATH_INFO"] == "/"
-        return [ 302, { "Location" => "/pages/about" }, [] ]
+        return [ 302, { "Location" => "/my_pages/about" }, [] ]
       end
 
       controller_class, action = get_controller_and_action env

@@ -11,7 +11,7 @@ module Simplemvc
       end
 
       controller_class, action = get_controller_and_action env
-      response = controller_class.new.send action
+      response = controller_class.new(env).send(action)
 
       [ 200, { "Content-Type" => "text/html"}, [ response ] ]
     end

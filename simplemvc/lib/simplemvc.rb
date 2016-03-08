@@ -14,11 +14,11 @@ module Simplemvc
       controller = controller_class.new(env)
       response = controller.send(action)
 
-      if controller.get_response
-        controller.get_response
-      else
-        [ 200, { "Content-Type" => "text/html" }, [ response ] ]
+      if controller.get_response == nil
+        controller.render action
       end
+
+      controller.get_response
     end
 
     def get_controller_and_action env

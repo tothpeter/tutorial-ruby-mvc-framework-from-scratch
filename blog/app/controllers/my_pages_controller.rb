@@ -1,10 +1,11 @@
 class MyPagesController < Simplemvc::Controller
+  attr_reader :name
+
   def about
     render :about, name: "kalina.tech"
   end
 
   def tell_me
-    render :tell_me, name: params['name']
-    p 'post script'
+    @name = "Kalina.tech from instance var"
   end
 end

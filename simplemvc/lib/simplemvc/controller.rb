@@ -28,7 +28,13 @@ module Simplemvc
       file_name = File.join("app", "views", controller_name, "#{view_name}.erb")
       template = File.read file_name
 
-      Erubis::Eruby.new(template).result locals
+      vars = {}
+      instance_variables.each do |var|
+        key = var.to_s.gsub('@', '').to_sym
+        vars[key] = instance_variable_get var
+      end
+
+      Erubis::Eruby.new(template).result locals.merge(vars)
     end
 
     def controller_name

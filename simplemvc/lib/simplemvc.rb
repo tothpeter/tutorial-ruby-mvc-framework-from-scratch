@@ -11,14 +11,7 @@ module Simplemvc
       end
 
       controller_class, action = get_controller_and_action env
-      controller = controller_class.new(env)
-      response = controller.send(action)
-
-      if controller.get_response == nil
-        controller.render action
-      end
-
-      controller.get_response
+      controller_class.new(env).dispatch(action)
     end
 
     def get_controller_and_action env

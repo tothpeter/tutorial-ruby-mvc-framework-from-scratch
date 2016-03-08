@@ -40,5 +40,19 @@ module Simplemvc
     def controller_name
       self.class.to_s.gsub(/Controller$/, "").underscore
     end
+
+    def dispatch action_name
+      content = self.send action_name
+
+      if get_response == nil
+        render action_name
+      end
+
+      get_response
+    end
+
+    def self.action action_name
+      -> (env) { self.new(env).dispatch(action_name) }
+    end
   end
 end

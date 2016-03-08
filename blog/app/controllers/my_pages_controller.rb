@@ -5,5 +5,6 @@ class MyPagesController < Simplemvc::Controller
 
   def tell_me
     render :tell_me, name: params['name']
+    p 'post script'
   end
 end

@@ -12,7 +12,19 @@ module Simplemvc
       request.params
     end
 
-    def render view_name, locals = {}
+    def render *args
+      response(render_template(*args))
+    end
+
+    def response body, status = 200, headers = {"Content-Type" => "text/html"}
+      @response = Rack::Response.new body, status, headers
+    end
+
+    def get_response
+      @response
+    end
+
+    def render_template view_name, locals = {}
       file_name = File.join("app", "views", controller_name, "#{view_name}.erb")
       template = File.read file_name
 

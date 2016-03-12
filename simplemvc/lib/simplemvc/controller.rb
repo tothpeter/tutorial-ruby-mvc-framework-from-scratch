@@ -42,7 +42,7 @@ module Simplemvc
     end
 
     def dispatch action_name
-      content = self.send action_name
+      self.send action_name
 
       if get_response == nil
         render action_name

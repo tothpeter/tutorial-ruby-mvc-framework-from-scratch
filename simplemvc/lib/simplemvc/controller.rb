@@ -4,8 +4,9 @@ module Simplemvc
   class Controller
     attr_reader :request
 
-    def initialize env
+    def initialize env, additional_params = {}
       @request ||= Rack::Request.new env
+      @request.params.merge! additional_params
     end
 
     def params
@@ -51,8 +52,8 @@ module Simplemvc
       get_response
     end
 
-    def self.action action_name
-      -> (env) { self.new(env).dispatch(action_name) }
+    def self.action action_name, additional_params = {}
+      -> (env) { self.new(env, additional_params).dispatch(action_name) }
     end
   end
 end
